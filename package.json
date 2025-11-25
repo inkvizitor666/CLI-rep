@@ -21,7 +21,8 @@
   },
   "bugs": {
     "url": "http://123.ru"
+  },
+  "dependencies": {
+    "axios": "^1.13.2"
   }
-  
 }
-
