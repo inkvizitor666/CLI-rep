@@ -1,0 +1,27 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "description": "CLI",
+  "main": "index.js",
+  "bin": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --where index.js"
+  },
+  "keywords": [
+    "cli",
+    "weather"
+  ],
+  "author": "Anatoliy Valerievich",
+  "license": "ISC",
+  "homepage": "http://123.ru",
+  "repository": {
+    "type": "git",
+    "url": "http://123.ru"
+  },
+  "bugs": {
+    "url": "http://123.ru"
+  }
+  
+}
+
