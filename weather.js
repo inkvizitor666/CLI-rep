@@ -1,16 +1,32 @@
 #!/usr/bin/env node
 import { getArgs } from "./helpers/args.js";
+import { printHelp, printSuccess, printError } from "./services/log.services.js";
+import { saveKeyValue, TOKEN_DICTIONARY } from "./services/storage.service.js";
+
+const saveToken = async (token) => {
+  if (!token.length) {
+    printError("Нет переданного токена(token)");
+    return;
+  }
+  try {
+    await saveKeyValue(TOKEN_DICTIONARY.token, token);
+    printSuccess("Токен сохранен");
+  } catch (e) {
+    printError(e.message);
+  }
+};
+
 const initCLI = () => {
   const args = getArgs(process.argv);
-  console.log(args);
+  //console.log(args);
   if (args.h) {
-    //Вывод хелпа -h это help
+    printHelp();
   }
   if (args.s) {
-    //Сохранение города -s это sity
+    printSuccess();
   }
   if (args.t) {
-    //Сохранение токена -t это токен
+    return saveToken(args.t);
   }
   //вывести погоду
 };
