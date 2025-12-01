@@ -19,4 +19,17 @@ const printHelp = () => {
     `)
   );
 };
-export { printError, printSuccess, printHelp };
+
+const printWeather = (res, icon) => {
+  console.log(
+    //dedent убирает отступы
+    dedent(`${chalk.bgGreen(" WETHER:  ")} Погода в городе ${res.name}
+    ${icon} ${res.wether[0].description}
+    Температура: ${res.main.temp} Ощущается как: ${res.main.feels_like}
+    Влажность: ${res.main.humidity}%
+    Скорость ветра: ${res.wind.speed}
+    
+    `)
+  );
+};
+export { printError, printSuccess, printHelp, printWeather };
