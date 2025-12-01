@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { getArgs } from "./helpers/args.js";
+import { getWether } from "./services/api.services.js";
 import { printHelp, printSuccess, printError } from "./services/log.services.js";
 import { saveKeyValue, TOKEN_DICTIONARY } from "./services/storage.service.js";
 
@@ -28,7 +29,7 @@ const initCLI = () => {
   if (args.t) {
     return saveToken(args.t);
   }
-  //вывести погоду
+  getWether("moscow");
 };
 
 initCLI();

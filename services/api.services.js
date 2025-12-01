@@ -6,7 +6,7 @@ const getWether = async (city) => {
   if (!token) {
     throw new Error("Не задан ключ API, -t [API_KEY]");
   }
-  const url = new URL();
+  const url = new URL("http://api.openweathermap.org/data/2.5/weather");
   url.searchParams.append("q", city);
   url.searchParams.append("appid", token);
   url.searchParams.append("lang", "ru");
@@ -22,3 +22,5 @@ const getWether = async (city) => {
     });
   });
 };
+
+export { getWether };
