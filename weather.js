@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { getArgs } from "./helpers/args.js";
-import { getWether, getIcon } from "./services/api.services.js";
+import { getWeather, getIcon } from "./services/api.services.js";
 import { printHelp, printSuccess, printError, printWeather } from "./services/log.services.js";
 import { saveKeyValue, TOKEN_DICTIONARY, getKeyValue } from "./services/storage.service.js";
 
@@ -16,6 +16,7 @@ const saveToken = async (token) => {
     printError(e.message);
   }
 };
+
 const saveCity = async (city) => {
   if (!city.length) {
     printError("Нет переданного города");
@@ -32,16 +33,16 @@ const saveCity = async (city) => {
 const getForcast = async () => {
   try {
     const city = process.env.CITY ?? (await getKeyValue(TOKEN_DICTIONARY.city));
-    const weather = await getWether(city);
-    printWeather(weather, getIcon(weather.weather[0].icon));
-    //console.log(weather); //вывод погоды  в консоль
+    const weatherData = await getWeather(city);
+    const icon = await getIcon(weatherData.weather[0].icon);
+    printWeather(weatherData, icon);
   } catch (e) {
     if (e?.response?.status == 404) {
       printError("Неверно указан город!");
     } else if (e?.response?.status == 401) {
       printError("Неверно указан токен!");
     } else {
-      printError(e.message);
+      printError("КАКОГО ХУЯ?:  " + e.message);
     }
   }
 };
@@ -57,7 +58,6 @@ const initCLI = () => {
     return saveCity(args.s);
   }
   if (args.t) {
-    //сохранение токена
     return saveToken(args.t);
   }
   return getForcast();

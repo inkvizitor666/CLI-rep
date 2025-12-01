@@ -5,27 +5,27 @@ import axios from "axios";
 const getIcon = async (icon) => {
   switch (icon.slice(0, -1)) {
     case "01":
-      return "ZzZ";
+      return "☀️";
     case "02":
-      return "ZzZ";
+      return "🌤️";
     case "03":
-      return "ZzZ";
+      return "⛅";
     case "04":
-      return "ZzZ";
+      return "☁️";
     case "09":
-      return "ZzZ";
+      return "🌧️";
     case "10":
-      return "ZzZ";
+      return "🌦️";
     case "11":
-      return "ZzZ";
+      return "🌩️";
     case "13":
-      return "ZzZ";
+      return "❄️";
     case "50":
-      return "ZzZ";
+      return "🌫️";
   }
 };
 
-const getWether = async (city) => {
+const getWeather = async (city) => {
   const token = process.env.TOKEN ?? (await getKeyValue(TOKEN_DICTIONARY.token)); //если есть токен TOKEN то берём его если нет то берём из TOKEN_DICTIONARY
   if (!token) {
     throw new Error("Не задан ключ API, -t [API_KEY]");
@@ -38,7 +38,7 @@ const getWether = async (city) => {
       units: "metric",
     },
   });
-  console.log(data);
+  //console.log(data);
   return data;
 
   /*   const url = new URL("https://api.openweathermap.org/data/2.5/weather");
@@ -58,4 +58,4 @@ const getWether = async (city) => {
   }); */
 };
 
-export { getWether, getIcon };
+export { getWeather, getIcon };
