@@ -46,8 +46,6 @@ const printWeather = (res, icon) => {
 +--------------------------------------------------------------------------+
     `
   );
-  const rainbow = chalkAnimation.rainbow("Спасибо что посмотрели погоду в колхозе " + res.name + " через мою CLI");
-  rainbow.start();
 };
 
 const printLsdWeather = (res, icon) => {
