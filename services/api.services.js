@@ -38,7 +38,7 @@ const getWeather = async (city) => {
       units: "metric",
     },
   });
-  //console.log(data);
+  //console.log(data); //
   return data;
 
   /*   const url = new URL("https://api.openweathermap.org/data/2.5/weather");
