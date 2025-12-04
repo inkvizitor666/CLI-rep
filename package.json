@@ -1,5 +1,5 @@
 {
-  "name": "weather-cli",
+  "name": "weather-cli-by-inkvizitor-rainbow",
   "version": "1.0.0",
   "description": "CLI",
   "main": "weather.js",
@@ -16,15 +16,15 @@
     "cli",
     "weather"
   ],
-  "author": "Anatoliy Valerievich",
+  "author": "inkvizitor666",
   "license": "ISC",
-  "homepage": "http://123.ru",
+  "homepage": "http://no.no",
   "repository": {
     "type": "git",
-    "url": "http://123.ru"
+    "url": "https://github.com/inkvizitor666"
   },
   "bugs": {
-    "url": "http://123.ru"
+    "url": "http://no.no"
   },
   "dependencies": {
     "axios": "^1.13.2",
